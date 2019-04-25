@@ -43,18 +43,18 @@
 	   .fadeOut( 3000 );
 	   
 	   event.preventDefault();
-	 });
-});
  });
+});
 </script>
 <body>
 <!-- action 속성 비워두면 자기자신 요청 -->
 <form action="">
 정수 입력: <input type="text" id="num" value="<%= n %>"/>
-<button type="button">제출</button>
+<!-- <button type="button">제출</button> -->
 </form>
 <br>
 <span></span>
+<br>
 <%-- 
  <%
    // 1 + 2 + 3 +...+ 10 = 55

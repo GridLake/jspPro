@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<title>JSP/Servlet Class - 2019. 4. 23. - 오후 4:40:20</title>
+<title>JSP/Servlet Class - 2019. 4. 25. - 오전 11:29:36</title>
 </head>
 <style>
  
@@ -16,13 +16,6 @@
  });
 </script>
 <body>
-<%
-  String contextPath = request.getContextPath();
-%>
- Hello World
- <br>
- <!-- get 방식 -->
- <a href="ex05.jsp?n1=10&n2=20">ex05.jsp</a><br>
- <a href="<%=contextPath %>/hello">HelloServlet.java</a><br>
+ <a href="info.htm">서블릿 객체의 라이프사이클</a>
 </body>
 </html>
