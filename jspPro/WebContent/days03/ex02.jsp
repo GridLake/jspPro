@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="">
-<title>JSP/Servlet Class - 2019. 4. 25. - 오후 4:29:45</title>
+<title>JSP/Servlet Class - 2019. 4. 26. - 오전 11:31:43</title>
 </head>
 <style>
  
@@ -17,14 +18,7 @@
  });
 </script>
 <body>
-<%
- String name = "admin";
- int age = 20;
- String params = String.format("name=%s&age=%d", name, age);
-%>
- 								<!-- EL 표기에서 \ 붙이면 EL 아님 -->
- <a href="ex01_ok.jsp?<%= params %>">\${param.name}</a>
- <br>
- <a href="ex01_02.jsp?<%= params %>">\${param.name}</a>
+ <a href="ex02_info.jsp">부서 정보 보기 - JSP</a><br>
+ <a href="ex02_info.do">부서 정보 보기 - Servlet</a><br>
 </body>
 </html>

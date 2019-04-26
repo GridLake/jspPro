@@ -46,4 +46,22 @@
       <param-value>tiger</param-value>
     </init-param>
   </servlet>
+  
+  <servlet>
+   <servlet-name>empServlet</servlet-name>
+   <servlet-class>days03.Ex04_emp</servlet-class>
+  </servlet>
+  <servlet-mapping>
+   <servlet-name>empServlet</servlet-name>
+   <url-pattern>/days03/ex04_emp</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+   <servlet-name>elServlet</servlet-name>
+   <servlet-class>days03.Ex05_EL</servlet-class>
+  </servlet>
+  <servlet-mapping>
+   <servlet-name>elServlet</servlet-name>
+   <url-pattern>/days03/ex05_el</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -14,7 +14,7 @@
  $(document).ready(function() {
 	  
 	 // ???
-	  /* 	 
+	   	 
 	  var url = location.href ;
 	  console.log(url);
 	  var index = url.indexOf("op");
@@ -29,7 +29,7 @@
 		      return false;
 		  }
 	  });
-	  */
+	  
 	  //$('option').attr('selected', 'selected');
 	  //$('option').prop('selected', 'true');
 	  
@@ -67,12 +67,12 @@
 <form method="get">
  <input type="text" id="n1" name="n1" autofocus="autofocus" value="<%= n1 %>"/>
  <select name="op" id="op">
-    <!-- ??? 
+     
     <option>+</option>
     <option>-</option>
     <option>*</option>
     <option>/</option>
-     -->
+    
      
  	<option <% if ( op.equals("+"))  {%> selected <%} %> >+</option>
 	<option <% if ( op.equals("-"))  {%> selected <%} %>>-</option>
