@@ -64,4 +64,22 @@
    <servlet-name>elServlet</servlet-name>
    <url-pattern>/days03/ex05_el</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+   <servlet-name>tblServlet</servlet-name>
+   <servlet-class>days04.Test01_EmpServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+   <servlet-name>tblServlet</servlet-name>
+   <url-pattern>/employees.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>jobChangeServlet</servlet-name>
+    <servlet-class>days04.Test01_JobServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>jobChangeServlet</servlet-name>
+    <url-pattern>/changejob.do</url-pattern>
+  </servlet-mapping>
 </web-app>

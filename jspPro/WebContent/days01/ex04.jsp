@@ -22,6 +22,7 @@
 	  var op = url.substr(index+3, 1);
 	  console.log()
 	  alert( unescape('%2F') );
+	  
 	  $("#op option").each(function (){
 		  //alert( $(this).val()  )
 		  if( $(this).val() == op ){
@@ -73,12 +74,12 @@
     <option>*</option>
     <option>/</option>
     
-     
+    <%--  
  	<option <% if ( op.equals("+"))  {%> selected <%} %> >+</option>
 	<option <% if ( op.equals("-"))  {%> selected <%} %>>-</option>
 	<option <% if ( op.equals("*"))  {%> selected <%} %>>*</option>
 	<option <% if ( op.equals("/"))  {%> selected <%} %>>/</option>
-	
+	 --%>
  </select>
  <input type="text" id="n2" name="n2" value="<%= n2 %>"/>
 </form>

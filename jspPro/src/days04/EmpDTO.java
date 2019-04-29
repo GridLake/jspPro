@@ -1,4 +1,4 @@
-package days03;
+package days04;
 
 import java.util.Date;
 
@@ -15,8 +15,10 @@ public class EmpDTO {
 	private String dname;
 	private double pay;
 
+	public EmpDTO() {}
+	
 	public double getPay() {
-		return pay = sal + comm;
+		return pay;
 	}
 
 	public void setPay(double pay) {
@@ -31,8 +33,6 @@ public class EmpDTO {
 		this.dname = dname;
 	}
 
-	public EmpDTO() {}
-	
 	public int getEmpno() {
 		return empno;
 	}

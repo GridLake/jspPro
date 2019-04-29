@@ -31,8 +31,8 @@
  [패턴 규칙]
  4. 그 외 패턴 일치
     <servlet-class>days01.BasicServlet</servlet-class>
-    <url-pattern>/days02</url-pattern>  경로패터 X , 확장자 패턴 X, 기본 매핑 X
-    ttp://localhost/jspPro/days02
+    <url-pattern>/days02</url-pattern>  경로패턴 X , 확장자 패턴 X, 기본 매핑 X
+    http://localhost/jspPro/days02
  3. 오직 '/'만 포함하는 경우 어플리케이션의 기본 서블릿으로 매핑
     <servlet-class>days01.BasicServlet</servlet-class>
     <url-pattern>/</url-pattern>

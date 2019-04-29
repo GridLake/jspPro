@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="">
-<title>JSP/Servlet Class - 2019. 4. 26. - 오후 4:18:34</title>
+<title>JSP/Servlet Class - 2019. 4. 29. - 오전 8:43:46</title>
 </head>
 <style>
  
@@ -18,10 +18,6 @@
  });
 </script>
 <body>
- <h3>스크립트릿, 표현식,html  -> JSTL</h3>  
-
- <c:forEach items="${ list }" var="dto">
-  <li> ${ dto.deptno }/${ dto.dname }/${ dto.loc}  </li>
- </c:forEach>
+ <a href="/jspPro/employees.do">테스트</a>
 </body>
 </html>
