@@ -46,34 +46,30 @@
       <param-value>tiger</param-value>
     </init-param>
   </servlet>
-  
   <servlet>
-   <servlet-name>empServlet</servlet-name>
-   <servlet-class>days03.Ex04_emp</servlet-class>
+    <servlet-name>empServlet</servlet-name>
+    <servlet-class>days03.Ex04_emp</servlet-class>
   </servlet>
   <servlet-mapping>
-   <servlet-name>empServlet</servlet-name>
-   <url-pattern>/days03/ex04_emp</url-pattern>
+    <servlet-name>empServlet</servlet-name>
+    <url-pattern>/days03/ex04_emp</url-pattern>
   </servlet-mapping>
-  
   <servlet>
-   <servlet-name>elServlet</servlet-name>
-   <servlet-class>days03.Ex05_EL</servlet-class>
+    <servlet-name>elServlet</servlet-name>
+    <servlet-class>days03.Ex05_EL</servlet-class>
   </servlet>
   <servlet-mapping>
-   <servlet-name>elServlet</servlet-name>
-   <url-pattern>/days03/ex05_el</url-pattern>
+    <servlet-name>elServlet</servlet-name>
+    <url-pattern>/days03/ex05_el</url-pattern>
   </servlet-mapping>
-  
   <servlet>
-   <servlet-name>tblServlet</servlet-name>
-   <servlet-class>days04.Test01_EmpServlet</servlet-class>
+    <servlet-name>tblServlet</servlet-name>
+    <servlet-class>days04.Test01_EmpServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-   <servlet-name>tblServlet</servlet-name>
-   <url-pattern>/employees.do</url-pattern>
+    <servlet-name>tblServlet</servlet-name>
+    <url-pattern>/employees.do</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>jobChangeServlet</servlet-name>
     <servlet-class>days04.Test01_JobServlet</servlet-class>
@@ -81,5 +77,37 @@
   <servlet-mapping>
     <servlet-name>jobChangeServlet</servlet-name>
     <url-pattern>/changejob.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>registServlet</servlet-name>
+    <servlet-class>days05.Regist</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>registServlet</servlet-name>
+    <url-pattern>/board/regist</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>listServlet</servlet-name>
+    <servlet-class>days05.List</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>listServlet</servlet-name>
+    <url-pattern>/board/list</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>contentServlet</servlet-name>
+    <servlet-class>days05.Content</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>contentServlet</servlet-name>
+    <url-pattern>/board/content</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>editServlet</servlet-name>
+    <servlet-class>days05.Edit</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>editServlet</servlet-name>
+    <url-pattern>/board/edit</url-pattern>
   </servlet-mapping>
 </web-app>
