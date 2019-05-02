@@ -14,7 +14,15 @@
  	border: solid 1px gray;
  }
  table {
- 	width: 600px;
+ 	border-spacing: 3px;
+    border-collapse: separate;
+ }
+ table,  tr, td {
+    /* border-radius: 3px; */
+    padding:3px; 
+ }
+ table{
+    width: 600px;
  }
 </style>
 <script>
@@ -44,6 +52,9 @@
   </tr>
 </table>
 <input type="hidden" name="seq" value="${param.seq}"/>
+<input type="hidden" name="searchCondition" value="${param.searchCondition}">
+<input type="hidden" name="searchWord" value="${param.searchWord}">
+<input type="hidden" name="currentPage" value="${param.currentPage}">
 </form>
  </div>
  

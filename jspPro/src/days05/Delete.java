@@ -31,15 +31,12 @@ public class Delete extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("> Regist.doPost()...");
+		System.out.println("> Delete.doPost()...");
 		
 		// 한글 깨짐 처리 :(POST 방식)
 		request.setCharacterEncoding("UTF-8");
 		
 		int seq = Integer.parseInt(request.getParameter("seq"));
-		
-		System.out.println("----" + seq);
-		// System.out.println(seq);
 		String p_password = request.getParameter("password");
 		
 		Connection con = null;
@@ -58,7 +55,6 @@ public class Delete extends HttpServlet {
 			rs.next();
 			String o_password = rs.getString("password");
 			rs.close();
-			pstmt.close();
 			
 			if(!o_password.equals(p_password)) {
 				request.setAttribute("error", "비밀번호가 틀립니다");
@@ -67,13 +63,11 @@ public class Delete extends HttpServlet {
 				return;
 			}
 			
-			if (o_password.equals(p_password)) {
-				sql = "delete from tbl_myboard " + " where seq = ?"; // and password = ?
-				pstmt = con.prepareStatement(sql);
-				pstmt.setInt(1, seq);
-				resultCnt = pstmt.executeUpdate();
-				pstmt.close();
-			}
+			sql = "delete from tbl_myboard " + " where seq = ?"; // and password = ?
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, seq);
+			resultCnt = pstmt.executeUpdate();
+			pstmt.close();
 			DBConn.close();
 		} catch (Exception e) { 
 			e.printStackTrace();
@@ -81,9 +75,17 @@ public class Delete extends HttpServlet {
 		
 		// 글 목록 페이지로 이동
 		// /board/list GET 요청 -> List.java -> days05/list.jsp 응답
-		String location = "/jspPro/board/list";
+		String location= "/jspPro/board/list";
+		
+		int currentPage = Integer.parseInt( request.getParameter("currentPage") );
+		String searchCondition = request.getParameter("searchCondition");
+		String searchWord = request.getParameter("searchWord");
+		
 		if(resultCnt == 1) {
 			location += "?delete=success";
+			location += String.format(
+					"&currentPage=%d&searchCondition=%s&searchWord=%s",
+					currentPage,searchCondition, searchWord );
 		}
 		else {
 			location = "/jspPro/board/delete?seq=" + seq;

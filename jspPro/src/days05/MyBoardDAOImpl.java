@@ -317,7 +317,7 @@ public class MyBoardDAOImpl implements IMyBoardDAO{
 	}
 
 	@Override
-	public int getNumberOfPages
+	public int getSearchNumberOfPages
 		(int numberPerPage, int searchCondition, String searchWord) throws SQLException {
 		
 		int numberOfPages = 0;
@@ -344,7 +344,8 @@ public class MyBoardDAOImpl implements IMyBoardDAO{
 		this.pstmt = this.connection.prepareStatement(sql);
 		this.pstmt.setInt(1, numberPerPage);
 		this.pstmt.setString(2, searchWord);
-		
+		if( searchCondition == 4) 	
+			this.pstmt.setString(3, searchWord);
 		
 		this.rs = this.pstmt.executeQuery();
 		

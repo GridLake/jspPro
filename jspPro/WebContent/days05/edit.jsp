@@ -13,8 +13,16 @@
  table, td, th {
  	border: solid 1px gray;
  }
+ table{
+    border-spacing: 3px;
+    border-collapse: separate;
+ }
+ table,  tr, td {
+   /* border-radius: 3px; */
+   padding:3px; 
+ }
  table {
- 	width: 600px;
+   width: 600px;
  }
 </style>
 <script>
@@ -61,6 +69,9 @@
    <td>
       <input type="radio" name="tag" value="y" >적용
       <input type="radio" name="tag" value="n" >비적용
+      <script>
+	    $(':radio[value=${ dto.tag}]').attr("checked","checked");
+	  </script>
     </td>
   </tr>
   <tr>
@@ -80,6 +91,11 @@
 </form>
 </div>
 
+<c:if test="${ not empty error  }">
+ <script>
+  alert('${ error }');
+ </script>
+</c:if>
 <c:if test="${param.edit eq 'success'}">
  <script>
   alert("수정 완료");

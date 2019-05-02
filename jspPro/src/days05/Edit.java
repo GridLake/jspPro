@@ -56,7 +56,7 @@ public class Edit extends HttpServlet {
 			dto.setCnt(rs.getInt("cnt"));
 			dto.setRegDate(rs.getDate("regdate"));
 			dto.setPassword(rs.getString("password"));
-			dto.setTag(rs.getString("tag"));
+			dto.setTag(rs.getString("tag").charAt(0));
 			}        
 						
 			request.setAttribute("dto", dto); // ***
@@ -77,41 +77,36 @@ public class Edit extends HttpServlet {
 		
 		// 한글 깨짐 처리 :(POST 방식)
 		request.setCharacterEncoding("UTF-8");
-		int seq = Integer.parseInt(request.getParameter("seq"));
 		
+		String seq = request.getParameter("seq");
 		String name = request.getParameter("name");
-		String password = request.getParameter("password");
 		String email = request.getParameter("email");
 		String subject = request.getParameter("subject");
 		String content = request.getParameter("content");
 		String tag = request.getParameter("tag");
-		int resultCnt = 0;
+		String password = request.getParameter("password");
 		
-		MyBoardDTO boardDto = new MyBoardDTO();
-		boardDto.setName(name);
-		boardDto.setPassword(password);
-		boardDto.setEmail(email);
-		boardDto.setSubject(subject);
-		boardDto.setContent(content);
-		boardDto.setTag(tag.charAt(0));
-
 		Connection con = null;
+		int resultCnt = 0;
 		PreparedStatement pstmt = null;
 		
 		try {
 			// 1
 			String sql = "update tbl_myboard " 
-			           + " set name = ?, email = ?, subject = ?, content = ?, tag = ? "
-					   + " where seq=" + seq;
+			           + " set name = ?, email = ?, subject = ?, content = ?, tag = ?, userip=? "
+					   + " where seq= ? and password = ?" ;
 			con = DBConn.getConnection();
 			pstmt = con.prepareStatement(sql);
 			
 			// 바인딩 변수 값 설정
-			pstmt.setString(1, boardDto.getName());
-			pstmt.setString(3, boardDto.getEmail());
-			pstmt.setString(4, boardDto.getSubject());
-			pstmt.setString(5, boardDto.getContent());
-			pstmt.setString(6, boardDto.getTag()+"");
+			pstmt.setString(1, name);
+			pstmt.setString(2, email);
+			pstmt.setString(3, subject);
+			pstmt.setString(4, content);
+			pstmt.setString(5, tag+"");
+			pstmt.setString(6, request.getRemoteAddr() );
+			pstmt.setString(7, seq);
+			pstmt.setString(8, password);
 			
 			resultCnt = pstmt.executeUpdate();
 			System.out.println("> resultCnt : " + resultCnt);
@@ -123,10 +118,14 @@ public class Edit extends HttpServlet {
 		
 		// 글 목록 페이지로 이동
 		// /board/list GET 요청 -> List.java -> days05/list.jsp 응답
-		String location = "/jspPro/board/list";
-		if(resultCnt == 1) {
-			location += "?edit=success";
+		if( resultCnt == 1 ) {
+			String location="/jspPro/board/content?seq="+seq+"&edit=success";
+			response.sendRedirect(location);
 		}
-		response.sendRedirect(location);
+		else {
+			request.setAttribute("error", "비밀번호가 틀립니다.");
+			doGet(request, response);
+			return;
+		}	
 	}
 }

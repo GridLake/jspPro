@@ -110,4 +110,12 @@
     <servlet-name>editServlet</servlet-name>
     <url-pattern>/board/edit</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>deleteServlet</servlet-name>
+    <servlet-class>days05.Delete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deleteServlet</servlet-name>
+    <url-pattern>/board/delete</url-pattern>
+  </servlet-mapping>
 </web-app>

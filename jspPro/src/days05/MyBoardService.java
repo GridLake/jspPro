@@ -143,7 +143,7 @@ public class MyBoardService {
 		String pagingBlock = "";
 		
 		try {
-			numberOfPages = this.boardDao.getNumberOfPages(numberPerPage, searchCondition, searchWord);
+			numberOfPages = this.boardDao.getSearchNumberOfPages(numberPerPage, searchCondition, searchWord);
 			pageBlockStart = (currentPage-1)/numberOfPageBlocks * numberOfPageBlocks + 1;
 			pageBlockEnd = pageBlockStart + numberOfPageBlocks -1;
 			pageBlockEnd = pageBlockEnd > numberOfPages ? numberOfPages : pageBlockEnd;

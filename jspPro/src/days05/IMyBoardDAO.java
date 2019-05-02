@@ -30,7 +30,7 @@ public interface IMyBoardDAO {
 	ArrayList<MyBoardDTO> selectSearch
 	(int currentPage, int numberPerPage, int searchCondition, String searchWord) throws SQLException;
 
-	int getNumberOfPages(int numberPerPage, int searchCondition, String searchWord) throws SQLException;
+	int getSearchNumberOfPages(int numberPerPage, int searchCondition, String searchWord) throws SQLException;
 	
 	// 게시글 보기
 	// 총 게시글 수 반환
