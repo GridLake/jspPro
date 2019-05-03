@@ -9,6 +9,32 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <context-param>
+    <description> 로깅 여부</description>
+    <description>A</description>
+    <param-name>logEnabled</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <context-param>
+    <description> 디버깅 레벨</description>
+    <param-name>debugLevel</param-name>
+    <param-value>5</param-value>
+  </context-param>
+  <!-- (error-code | exception-type)?, location) -->
+  <!-- 
+  <error-page>
+    <error-code>404</error-code>
+    <location>/error/error404.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/error/error500.jsp</location>
+  </error-page>
+  <error-page>
+    <exception-type>java.lang.NullPointerException</exception-type>
+    <location>/error/errorNullPointer.jsp</location>
+  </error-page>
+   -->
   <servlet>
     <servlet-name>lifeCycle</servlet-name>
     <servlet-class>days02.LifeCycle</servlet-class>

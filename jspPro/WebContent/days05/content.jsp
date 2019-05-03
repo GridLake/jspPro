@@ -126,9 +126,10 @@
   </div>
 <script> 
 $("#btnModalDelete").click(function (){
-	$("#myModal").modal("show");
+	$("#myModal").modal("show"); /* 이 쿼리를 통해 모달창을 띄움 */
 });
 
+// 모달창의 삭제 버튼 클릭
 $("#btnDelete").click(function (){ 
 	if( confirm("정말 삭제합니까? ")) {
 		$("#form1").submit();

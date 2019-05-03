@@ -43,7 +43,7 @@ public class Content extends HttpServlet {
 			int resultCnt = pstmt.executeUpdate();
 			pstmt.close();
 			// seq 게시글 -> dto
-			sql =   "select seq, name, email, subject, content, cnt, regdate, password "
+			sql =   "select seq, name, email, subject, content, cnt, regdate, password, tag "
 					 + " from tbl_myboard "
 				 	 + " where seq = ? ";
 			pstmt = con.prepareStatement(sql);
@@ -58,7 +58,13 @@ public class Content extends HttpServlet {
 			dto.setName(rs.getString("name"));
 			dto.setEmail(rs.getString("email"));
 			dto.setSubject(rs.getString("subject"));
-			dto.setContent(rs.getString("content"));
+			dto.setTag(rs.getString("tag").charAt(0));  // char
+			String content = rs.getString("content").replace("\r\n", "<br>");
+			if(dto.getTag() == 'n') { // 비적용
+				content.replaceAll("<", "&lt;");
+				content.replaceAll(">", "&gt;");
+			}
+			dto.setContent(content);
 			dto.setCnt(rs.getInt("cnt"));
 			dto.setRegDate(rs.getDate("regdate"));
 			dto.setPassword(rs.getString("password"));
