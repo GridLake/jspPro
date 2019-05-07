@@ -1,0 +1,10 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	// 웹 어플리케이션 (웹 사이트) 전체에 사용되는 공통적인 기능 선언, 수행
+	// 다른페이지에서 사용될 기능들 미리 선언.
+	request.setCharacterEncoding("UTF-8");
+	String contextPath = request.getContextPath();
+	String downloadPath = "download";
+%>
+<!--169p include 지시자 처리 방식의 이해 - 하나의 서블릿으로 만들어진다는 개념!? -->
+<%-- <h3> ex01.jsp title = <%= title %> </h3> --%>

@@ -9,6 +9,19 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <!--   2019-05-07 173p 코드 조각 자동 포함 기능 -->
+  <jsp-config>
+  	<jsp-property-group>
+<!--   	모든 jsp 파일 -->
+  		<url-pattern>/days08/*</url-pattern>  
+<!--   		<url-pattern>/days08/ex01.jsp</url-pattern> -->
+<!--   		<url-pattern>/days08/ex02.jsp</url-pattern> -->
+  		<include-prelude>/include.jspf</include-prelude>
+<!--   		<include-coda>/include.jspf</include-coda> -->
+  	</jsp-property-group>
+  </jsp-config>
+  
   <context-param>
     <description> 로깅 여부</description>
     <description>A</description>
