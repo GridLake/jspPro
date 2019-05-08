@@ -157,4 +157,46 @@
     <servlet-name>deleteServlet</servlet-name>
     <url-pattern>/board/delete</url-pattern>
   </servlet-mapping>
+  
+  <!-- 톰캣이 실행될 때 자동으로 커넥션 풀 생성 -->
+ <resource-ref>
+  <description>Oracle Datasource example</description>
+  <res-ref-name>jdbc/myoracle</res-ref-name>
+  <res-type>javax.sql.DataSource</res-type>
+  <res-auth>Container</res-auth>
+ </resource-ref>
+ 
+ <!-- 세션 유효시간 지정 - 30(분) -->
+ <!-- 
+ <session-config>
+  <session-timeout>30</session-timeout>
+ </session-config>
+  -->
+  
+ <servlet>
+   <servlet-name>sessionServlet</servlet-name>
+   <servlet-class>days09.CreateSession</servlet-class>
+ </servlet>
+ <servlet-mapping>
+   <servlet-name>sessionServlet</servlet-name>
+   <url-pattern>/days09/ex05.do</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet>
+   <servlet-name>logon</servlet-name>
+   <servlet-class>days09.Ex06_Logon</servlet-class>
+ </servlet>
+ <servlet-mapping>
+   <servlet-name>logon</servlet-name>
+   <url-pattern>/days09/ex06_logon.jsp</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet>
+   <servlet-name>logout</servlet-name>
+   <servlet-class>days09.Ex06_Logout</servlet-class>
+ </servlet>
+ <servlet-mapping>
+   <servlet-name>logout</servlet-name>
+   <url-pattern>/days09/ex06_logout.jsp</url-pattern>
+ </servlet-mapping>
 </web-app>

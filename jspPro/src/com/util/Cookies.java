@@ -35,7 +35,7 @@ public class Cookies {
     	if (cookie == null) {
 			return null;
 		}
-    	return URLDecoder.decode(cookie.getValue(), "euc-kr");
+    	return URLDecoder.decode(cookie.getValue(), "utf-8");
     }
     
     public boolean exists(String name) {
