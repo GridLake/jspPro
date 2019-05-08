@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> jsp/servlet class - Ljm (2019. 5. 7.-오전 10:08:11)</title>
+<title>JSP/Servlet Class - 2019. 5. 7. - 오전 10:08:11</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

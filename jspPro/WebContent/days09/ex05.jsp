@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
  // 세션 타임아웃: 단위(초)
- session.setMaxInactiveInterval(30 * 60);
+ // session.setMaxInactiveInterval(30 * 60);
 
  // <session-timeout> 값을 0 또는 음수로 설정하면 유효시간 갖지 않음
 %>

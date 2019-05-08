@@ -47,7 +47,7 @@
 		    <a href="ex06_logout.jsp">로그아웃</a>
 		   </div>
      </c:otherwise>
-  </c:choose> 
+  </c:choose>
    
    <a href="ex01_board.jsp">게시판</a><br>
    <a href="ex01_notice.jsp">공지사항</a><br>

@@ -55,3 +55,23 @@
 </body>
 </html>
 
+<!-- 
+@지시자  include     ex06_sessionAuth.jsp  session  string  auth
+main 페이지 -- ex06_default.jsp
+[      ]
+[][   ]    id/pass   로그인 버튼 클릭 / 로그아웃
+[      ]
+-> Ex06_Logout.java 서블릿 클래스
+  auth  세션값 제거...  p 245    경고창 +  ex06_default.jsp
+  
+
+-> Ex06_Logon.java 서블릿 클래스
+    doGet(){
+       id/pass
+       // hashMap
+       // if       관리자            session.setAttribute("auth","관리자"); ex06_default.jsp
+       // else if   홍길동
+       // else if    김지수
+       // else  로그인실패  ex06_default.jsp?error
+    }
+ -->

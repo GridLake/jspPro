@@ -43,6 +43,6 @@
     }
   }
  %>
- <img src="/jspPro/days09/List.do.PNG" alt="" />
+ <img src="/jspPro/days09/List.do.png" alt="" />
 </body>
 </html>

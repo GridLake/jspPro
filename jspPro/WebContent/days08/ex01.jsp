@@ -15,7 +15,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> jsp/servlet class - Ljm (2019. 5. 7.-오전 9:07:54)</title>
+<title>JSP/Servlet Class - 2019. 5. 7. - 오전 9:07:54</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -28,7 +28,11 @@
 </style>
 </head>
 <body>
-<!-- 공통적으로 선언한 include.jspf 파일 사용하기 -->
+
+<!-- 
+p.168 include 지시자
+공통적으로 선언한 include.jspf 파일 사용하기
+ -->
 <%-- <%@ include file="/include.jspf" %> --%>
 	context path = <%= contextPath %><br>
 	download path = <%= downloadPath %><br>

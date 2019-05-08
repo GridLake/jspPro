@@ -16,11 +16,11 @@
 	 response.addCookie(cookie);
 	 response.sendRedirect("ex01_default.jsp");
  } else if(id.equals("hong") && pass.equals("1234")) {
-	 Cookie cookie = Cookies.createCookie("auth", "id", "/", -1);
+	 Cookie cookie = Cookies.createCookie("auth", id, "/", -1);
 	 response.addCookie(cookie);
 	 response.sendRedirect("ex01_default.jsp");
  } else if(id.equals("kim") && pass.equals("1234")) {
-	 Cookie cookie = Cookies.createCookie("auth", "id", "/", -1);
+	 Cookie cookie = Cookies.createCookie("auth", id, "/", -1);
 	 response.addCookie(cookie);
 	 response.sendRedirect("ex01_default.jsp");
  } else {

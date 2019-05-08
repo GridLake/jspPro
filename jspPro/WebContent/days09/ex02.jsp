@@ -45,5 +45,10 @@
   Connection conn2 = ConnectionProvider.getConnection();
  %>
  <%= conn2 %><br>
+ <%
+     // 커넥션 풀에 다시 반환
+     if( conn != null )  conn.close();
+     if( conn2 != null ) conn2.close();
+ %>
 </body>
 </html>

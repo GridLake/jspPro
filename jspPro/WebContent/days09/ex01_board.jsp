@@ -43,6 +43,8 @@
     }
   }
  %>
- <img src="/jspPro/days09/List.do.PNG" alt="" />
+ <br>
+ <!-- 경로, 확장자도 대소문자 구분한다 -->
+ <img src="/jspPro/days09/List.do.png" alt="" />
 </body>
 </html>

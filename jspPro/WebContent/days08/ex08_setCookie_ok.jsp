@@ -9,10 +9,7 @@
  
  Cookies cookies = new Cookies(request);
  Cookie cookie = cookies.createCookie(cname, cvalue, "/", -1);
- 
  response.addCookie(cookie);
  
  response.sendRedirect("ex08.jsp");
- 
- 
 %>
