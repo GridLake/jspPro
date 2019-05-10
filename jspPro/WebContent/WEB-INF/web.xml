@@ -9,194 +9,52 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
-  <!--   2019-05-07 173p 코드 조각 자동 포함 기능 -->
-  <jsp-config>
-  	<jsp-property-group>
-<!--   	모든 jsp 파일 -->
-  		<url-pattern>/days08/*</url-pattern>  
-<!--   		<url-pattern>/days08/ex01.jsp</url-pattern> -->
-<!--   		<url-pattern>/days08/ex02.jsp</url-pattern> -->
-  		<include-prelude>/include.jspf</include-prelude>
-<!--   		<include-coda>/include.jspf</include-coda> -->
-  	</jsp-property-group>
-  </jsp-config>
-  
-  <context-param>
-    <description> 로깅 여부</description>
-    <description>A</description>
-    <param-name>logEnabled</param-name>
-    <param-value>true</param-value>
-  </context-param>
-  <context-param>
-    <description> 디버깅 레벨</description>
-    <param-name>debugLevel</param-name>
-    <param-value>5</param-value>
-  </context-param>
-  <!-- (error-code | exception-type)?, location) -->
   <!-- 
-  <error-page>
-    <error-code>404</error-code>
-    <location>/error/error404.jsp</location>
-  </error-page>
-  <error-page>
-    <error-code>500</error-code>
-    <location>/error/error500.jsp</location>
-  </error-page>
-  <error-page>
-    <exception-type>java.lang.NullPointerException</exception-type>
-    <location>/error/errorNullPointer.jsp</location>
-  </error-page>
+  <listener>
+   <listener-class>com.util.DBCPInitListener</listener-class>
+  </listener>
    -->
-  <servlet>
-    <servlet-name>lifeCycle</servlet-name>
-    <servlet-class>days02.LifeCycle</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>lifeCycle</servlet-name>
-    <url-pattern>/days02/info.htm</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>test</servlet-name>
-    <servlet-class>days02.TestServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>test</servlet-name>
-    <url-pattern>/call</url-pattern>
-    <url-pattern>/days02/call</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>DBCPInit</servlet-name>
-    <servlet-class>days02.DBCPInit</servlet-class>
-    <init-param>
-      <param-name>className</param-name>
-      <param-value>oracle.jdbc.driver.OracleDriver</param-value>
-    </init-param>
-    <init-param>
-      <param-name>url</param-name>
-      <param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
-    </init-param>
-    <init-param>
-      <param-name>user</param-name>
-      <param-value>scott</param-value>
-    </init-param>
-    <init-param>
-      <param-name>password</param-name>
-      <param-value>tiger</param-value>
-    </init-param>
-  </servlet>
-  <servlet>
-    <servlet-name>empServlet</servlet-name>
-    <servlet-class>days03.Ex04_emp</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>empServlet</servlet-name>
-    <url-pattern>/days03/ex04_emp</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>elServlet</servlet-name>
-    <servlet-class>days03.Ex05_EL</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>elServlet</servlet-name>
-    <url-pattern>/days03/ex05_el</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>tblServlet</servlet-name>
-    <servlet-class>days04.Test01_EmpServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>tblServlet</servlet-name>
-    <url-pattern>/employees.do</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>jobChangeServlet</servlet-name>
-    <servlet-class>days04.Test01_JobServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>jobChangeServlet</servlet-name>
-    <url-pattern>/changejob.do</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>registServlet</servlet-name>
-    <servlet-class>days05.Regist</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>registServlet</servlet-name>
-    <url-pattern>/board/regist</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>listServlet</servlet-name>
-    <servlet-class>days05.List</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>listServlet</servlet-name>
-    <url-pattern>/board/list</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>contentServlet</servlet-name>
-    <servlet-class>days05.Content</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>contentServlet</servlet-name>
-    <url-pattern>/board/content</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>editServlet</servlet-name>
-    <servlet-class>days05.Edit</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>editServlet</servlet-name>
-    <url-pattern>/board/edit</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>deleteServlet</servlet-name>
-    <servlet-class>days05.Delete</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>deleteServlet</servlet-name>
-    <url-pattern>/board/delete</url-pattern>
-  </servlet-mapping>
+  <context-param>
+   <param-name>poolConfig</param-name>
+   <param-value>
+    className=oracle.jdbc.driver.OracleDriver
+	url=jdbc:oracle:thin:@localhost:1521:xe
+	user=scott
+	password=tiger
+   </param-value>
+  </context-param>
   
-  <!-- 톰캣이 실행될 때 자동으로 커넥션 풀 생성 -->
- <resource-ref>
-  <description>Oracle Datasource example</description>
-  <res-ref-name>jdbc/myoracle</res-ref-name>
-  <res-type>javax.sql.DataSource</res-type>
-  <res-auth>Container</res-auth>
- </resource-ref>
- 
- <!-- 세션 유효시간 지정 - 30(분) -->
- <!-- 
- <session-config>
-  <session-timeout>30</session-timeout>
- </session-config>
-  -->
+  <resource-ref>
+    <description>Oracle Datasource example</description>
+    <res-ref-name>jdbc/myoracle</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
   
- <servlet>
-   <servlet-name>sessionServlet</servlet-name>
-   <servlet-class>days09.CreateSession</servlet-class>
- </servlet>
- <servlet-mapping>
-   <servlet-name>sessionServlet</servlet-name>
-   <url-pattern>/days09/ex05.do</url-pattern>
- </servlet-mapping>
- 
- <servlet>
-   <servlet-name>logon</servlet-name>
-   <servlet-class>days09.Ex06_Logon</servlet-class>
- </servlet>
- <servlet-mapping>
-   <servlet-name>logon</servlet-name>
-   <url-pattern>/days09/ex06_logon.jsp</url-pattern>
- </servlet-mapping>
- 
- <servlet>
-   <servlet-name>logout</servlet-name>
-   <servlet-class>days09.Ex06_Logout</servlet-class>
- </servlet>
- <servlet-mapping>
-   <servlet-name>logout</servlet-name>
-   <url-pattern>/days09/ex06_logout.jsp</url-pattern>
- </servlet-mapping>
+  <filter>
+    <filter-name>encodingFilter</filter-name>
+    <filter-class>com.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>encodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <servlet>
+    <servlet-name>ControllerUsingURI</servlet-name>
+    <servlet-class>board21.member.Controller.ControllerUsingURI</servlet-class>
+    <init-param>
+      <param-name>configFile</param-name>
+      <param-value>/WEB-INF/view/board21/commandHandlerURI.properties</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerUsingURI</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
 </web-app>
