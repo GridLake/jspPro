@@ -1,13 +1,12 @@
 package board21.member.command;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import board21.member.service.DuplicatedIdException;
+import board21.member.service.DuplicateIdException;
 import board21.member.service.JoinRequest;
 import board21.member.service.JoinService;
 
@@ -53,8 +52,8 @@ public class JoinHandler implements CommandHandler {
 		try {
 			joinService.join(joinReq);
 			return "/board21/joinSuccess";
-		} catch (DuplicatedIdException e) {
-			errors.put("duplicatedId", Boolean.TRUE);
+		} catch (DuplicateIdException e) {
+			errors.put("duplicateId", Boolean.TRUE);
 			return FORM_VIEW;
 		}
 	}

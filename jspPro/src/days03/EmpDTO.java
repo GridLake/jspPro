@@ -66,13 +66,13 @@ public class EmpDTO {
 	public double getSal() {
 		return sal;
 	}
-	public void setSal(int sal) {
+	public void setSal(double sal) {
 		this.sal = sal;
 	}
 	public double getComm() {
 		return comm;
 	}
-	public void setComm(int comm) {
+	public void setComm(double comm) {
 		this.comm = comm;
 	}
 	public int getDeptno() {

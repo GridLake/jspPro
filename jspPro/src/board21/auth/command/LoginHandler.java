@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import board21.auth.service.LoginFailException;
 import board21.auth.service.LoginService;
@@ -52,11 +53,24 @@ public class LoginHandler implements CommandHandler{
 		try {
 			User user = loginService.login(memberid, password);
 			request.getSession().setAttribute("authUser", user);
+			
 			// http://localhost/jspPro/WEB-INF/view/board21/loginForm.jsp
 			// response.sendRedirect("WEB-INF/view/board21/index.jsp");
 			// /jspPro
 			// System.out.println(request.getContextPath());
-			return "/board21/index";
+			
+			// redirect 방식으로 WEB-INF 접근하고 싶으면... ".do"와 같이 패턴으로
+			HttpSession session = request.getSession(false);
+			if (session.getAttribute("referer") != null) {
+				response.sendRedirect((String)session.getAttribute("referer"));
+			} else {
+				response.sendRedirect(request.getContextPath() + "/index.do");
+			}
+			return null;
+			
+			// 포워딩으로 하면 DB 연동할 때 누락될 수 있음
+			// return "/board21/index";
+			
 		} catch (LoginFailException e) {
 			errors.put("idOrPwNotMatch", Boolean.TRUE);
 			return FORM_VIEW;

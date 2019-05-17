@@ -22,10 +22,11 @@ public class JoinService {
 			conn = ConnectionProvider.getConnection();
 			conn.setAutoCommit(false);
 			
+			// 트랜잭션 처리
 			Member member = memberDAO.selectById(conn, joinReq.getMemberid());
 			if (member != null) {
 				JdbcUtil.rollback(conn);
-				throw new DuplicatedIdException();
+				throw new DuplicateIdException();
 			}
 			
 			memberDAO.insert(conn
@@ -36,8 +37,10 @@ public class JoinService {
 							,new Date())
 					 );
 			conn.commit();
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			JdbcUtil.rollback(conn);
+			throw new RuntimeException(e);
+		} catch (NamingException e) {
 			throw new RuntimeException(e);
 		} finally {
 			JdbcUtil.close(conn);

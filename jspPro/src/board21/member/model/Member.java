@@ -9,10 +9,28 @@ public class Member {
 	private String password;
 	private Date regdate;
 	
+	public Member() {}
+	
 	public Member(String memberid, String name, String password, Date regdate) {
 		this.memberid = memberid;
 		this.name = name;
 		this.password = password;
+		this.regdate = regdate;
+	}
+
+	public void setMemberid(String memberid) {
+		this.memberid = memberid;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
 
@@ -34,6 +52,10 @@ public class Member {
 	
 	public boolean matchPassword(String pwd) {
 		return password.equals(pwd);
+	}
+	
+	public void changePassword(String newPwd) {
+		this.password = newPwd;
 	}
 	
 }

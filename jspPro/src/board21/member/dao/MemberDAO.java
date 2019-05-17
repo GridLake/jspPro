@@ -13,13 +13,13 @@ import board21.member.model.Member;
 
 public class MemberDAO {
 
-	public Member selectById(Connection conn, String id) throws SQLException {
+	public Member selectById(Connection conn, String memberid) throws SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
 		try {
 			pstmt = conn.prepareStatement("select * from member21 where memberid = ?");
-			pstmt.setString(1, id);
+			pstmt.setString(1, memberid);
 			rs = pstmt.executeQuery();
 			Member member = null;
 			if (rs.next()) {
@@ -49,5 +49,17 @@ public class MemberDAO {
 			pstmt.setTimestamp(4, new Timestamp(mem.getRegdate().getTime()));
 			pstmt.executeUpdate();
 		} 
+	}
+	
+	public void update(Connection conn, Member member) throws SQLException {
+		try (PreparedStatement pstmt = conn.prepareStatement(
+			"update member21 set name = ?, password = ? where memberid = ?")){
+			pstmt.setString(1, member.getName());
+			pstmt.setString(2, member.getPassword());
+			pstmt.setString(3, member.getMemberid());
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

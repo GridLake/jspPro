@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class LoginCheckFilter implements Filter{
@@ -22,23 +23,17 @@ public class LoginCheckFilter implements Filter{
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println("> LoginCheckFilter.doFilter()");
+		// System.out.println("> LoginCheckFilter.doFilter()");
 		
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpSession session = httpRequest.getSession(false);
 		
-		boolean login = false;
-		if (session != null) {
-			if (session.getAttribute("MEMBER") != null) {
-				login = true;
-			}
+		if (session == null || session.getAttribute("authUser") == null) {
+			HttpServletResponse res = (HttpServletResponse) response;
+			res.sendRedirect(httpRequest.getContextPath() + "/board21/login.do");
 		}
-		
-		if (login) {
+		else {
 			chain.doFilter(request, response);
-		} else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/days11/member/ex01_loginForm.jsp");
-			dispatcher.forward(request, response);
 		}
 	}
 

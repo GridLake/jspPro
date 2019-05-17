@@ -28,6 +28,7 @@
   -->
  <a href="/jspPro/board21/join.do">회원가입</a>
  <a href="/jspPro/board21/login.do">로그인</a>
- 
+ <a href="/jspPro/board21/changePwd.do">로그인여부 검사</a>
+
 </body>
 </html>

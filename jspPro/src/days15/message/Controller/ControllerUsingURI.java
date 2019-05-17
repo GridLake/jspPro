@@ -1,4 +1,4 @@
-package board21.member.Controller;
+package days15.message.Controller;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import board21.auth.command.NullHandler;
-import board21.member.command.CommandHandler;
+import days15.guestbook.command.CommandHandler;
+import days15.guestbook.command.NullHandler;
 
 public class ControllerUsingURI extends HttpServlet{
 
@@ -32,7 +32,7 @@ public class ControllerUsingURI extends HttpServlet{
 
 		try (FileReader fis = new FileReader(configFilePath)) {
 			prop.load(fis);
-		} catch (Exception e) {
+		} catch (IOException e) {
 			throw new ServletException(e);
 		}
 
