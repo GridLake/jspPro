@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML Class - 2019. 5. 21. - 오전 9:33:24</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="">
+<style>
+ 
+</style>
+<script>
+ 
+	var httpRequest; // 변수 선언
+	function getXMLHttpRequest() { // 함수
+		if (window.ActiveXObject) { // IE
+			try {
+				return new ActiveXObject("Msxml2.XMLHTTP");
+			} catch (e) {
+				try {
+					return new ActiveXObject("Microsoft.XMLHTTP");
+				} catch (e) {
+					return null;
+				}
+			}
+		} else if (window.XMLHttpRequest) {
+			return new XMLHttpRequest();
+		} else {
+			return null;
+		}
+	}
+	
+	// 비동기적으로 서버의 자원(sample.txt)을 요청
+	function load(url) {
+		// 1. XMLHttpRequest 요청 객체
+		httpRequest = getXMLHttpRequest();
+		// 2. 설정 open()
+		httpRequest.onreadystatechange = callback;
+		httpRequest.open("GET", url, true);
+		// 3. 요청 send()
+		httpRequest.send(null);
+	}
+	
+	// 콜백함수(callback function)
+	function callback() {
+		// 400, 500   200
+		if (httpRequest.readyState == 4) { // 데이터 얻어왔다
+			if (httpRequest.status == 200) {
+				// responseText 문자열
+				// responseXML XML
+				// responseBody 이진코드문자열
+				alert(httpRequest.responseText);
+			}
+			else {
+				alert("> Ajax 요청 실패 " + httpRequest.status);
+			}
+		}
+	}
+ 
+</script>
+<script>
+ $(document).ready(function () {
+	 $("#btnAjax").click(function () {
+		 $("#demo").load("sample01.txt", function (response, status, xhr) {
+			 if (status == "error") {
+				 alert("요청 실패");
+			 } else if (status == "success") {
+				 alert("요청 성공");
+			 }
+		 });
+	 });
+ });
+</script>
+</head>
+<body>
+ <input type="button" value="javascript ajax" onclick="load('sample01.txt')"/><br>
+ <input type="button" value="jquery ajax" id="btnAjax"/><br>
+ <hr>
+ <div id="demo"></div>
+</body>
+</html>

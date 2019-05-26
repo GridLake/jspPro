@@ -1,0 +1,38 @@
+1. Ajax[에이작스] == 아작스 == 에이젝스
+2. Asynchronous Javascript and XML
+   비동기적     자바스크립트 + XML    처리방법
+   XML 데이터를 자바스크립트를 사용해서 비동기적으로 처리하는 기술
+   JSON
+   Text
+3. 비동기적 처리 의미?
+   웹 요청 <--> 응답
+   main.jsp		login.jsp
+   상태 유지X
+4. Ajax 장점?
+   ㄱ. 페이지 전체 이동 없이 성능 빠름
+   ㄴ. 서버 처리를 기다리지 않고 비동기 처리 요청이 가능(쓰레드)
+   ㄷ. 서버 측 처리를 각 PC에서 분산 처리 가능
+   ㄹ. 수신하는 데이터의 양을 줄일 수 있다(ㄱ)
+5. Ajax 단점?
+   ㄱ. 보안 유의
+   ㄴ. 오픈소스
+   ㄷ. 브라우저에 따라 처리 다름
+6. Ajax 활용
+   ㄱ. 회원가입
+   ㄴ. 우편번호 검색
+   ㄷ. ID 중복체크
+7. Ajax 처리 객체: XMLHttpRequest
+   ㄱ. 객체 얻어왔다면
+   ㄴ. 설정 + 요청(get/post)
+   ㄷ. callback 함수 호출(요청 + 상태 확인 -> xml, json, text -> 원하는 작업 수행)
+   
+   파라미터가 존재할 때 get/post 방식 다름
+8. get 방식 Ajax
+   ㄱ. XMLHttpRequest (Ajax 요청객체)
+   ㄴ. XMLHttpRequest객체.open("GET", "/test.jsp?id=admin", true 비동기적처리); // 환경설정
+   ㄷ. XMLHttpRequest.send(null); // 실제 요청 부분
+9. post 방식 Ajax
+   ㄱ. XMLHttpRequest (Ajax 요청객체)
+   ㄴ. XMLHttpRequest객체.open("POST", "/test.jsp", true 비동기적처리); // 환경설정
+   ㄷ. XMLHttpRequest.send("id=admin"); // 실제 요청 부분
+10. 콜백함수 호출... 코딩...
