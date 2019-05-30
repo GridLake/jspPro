@@ -33,7 +33,7 @@
 p.168 include 지시자
 공통적으로 선언한 include.jspf 파일 사용하기
  -->
-<%-- <%@ include file="/include.jspf" %> --%>
+<%@ include file="/include.jspf" %>
 	context path = <%= contextPath %><br>
 	download path = <%= downloadPath %><br>
 </body>
