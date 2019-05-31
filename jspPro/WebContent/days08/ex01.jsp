@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="/include.jspf" %>
 <%-- 
 <%
 	//지역변수 개념
@@ -33,7 +34,6 @@
 p.168 include 지시자
 공통적으로 선언한 include.jspf 파일 사용하기
  -->
-<%@ include file="/include.jspf" %>
 	context path = <%= contextPath %><br>
 	download path = <%= downloadPath %><br>
 </body>
